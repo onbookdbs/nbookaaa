@@ -24,11 +24,12 @@ app.get('/', (req, res) => {
 });
 
 // Route Files.
+let sitemap = require('./routes/sitemap');
 let page1 = require('./routes/page1');
 let page2 = require('./routes/page2');
 let page3 = require('./routes/page3');
 let page4 = require('./routes/page4');
-app.use('/page1', page1);
+app.use('/sitemap.xml', sitemap);
 app.use('/page2', page2);
 app.use('/page3', page3);
 app.use('/page4', page4);
