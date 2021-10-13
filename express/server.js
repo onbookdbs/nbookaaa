@@ -1,29 +1,22 @@
-"use strict"
-const express = require("express")
-const serverless = require("serverless-http")
-const app = express()
-const bodyParser = require("body-parser")
-const router = express.Router()
+'use strict';
+const express = require('express');
+const path = require('path');
+const serverless = require('serverless-http');
+const app = express();
+const bodyParser = require('body-parser');
 
-app.use(bodyParser.json())
-app.use("/.netlify/functions/server", router) // path must route to lambda
-app.use("/", router)
+const router = express.Router();
+router.get('/', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Hello from Express.js!</h1>');
+  res.end();
+});
+router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
+router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-router.get("/", (req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" })
-  res.write("<h1>Up and running</h1>")
-  res.end()
-})
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
-router.post("/doSomething", async (req, res) => {
-  try {
-    // maybe do some database interaction or third-party API call here!
-    res.status(200).send({ data: "success" })
-  } catch (err) {
-    console.log(err)
-    res.status(400).send({ error: "bad request" })
-  }
-})
-
-module.exports = app
-module.exports.handler = serverless(app)
+module.exports = app;
+module.exports.handler = serverless(app);
