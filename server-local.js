@@ -3,8 +3,6 @@ const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
-const bodyParser = require('body-parser');
-// Link to views folder.
 // Home route.
 app.get('/', (req, res) => {
     let id = req.query.id;
@@ -40,10 +38,9 @@ app.get('/sitemap.xml', function(req, res){
         res.write("</urlset>"), res.end();
     });
 });
-
-
-app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda (express/server.js)
-
 module.exports = app;
 module.exports.handler = serverless(app);
+let port = 3005;
+app.listen(port, function(){
+  console.log(`Server started on port ${port}...`);
+});
