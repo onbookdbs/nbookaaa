@@ -1,12 +1,11 @@
 {
-  "name": "nbook",
+  "name": "nbookaaa",
   "version": "0.0.1",
   "description": "Example of how to deploy an Express.js Netlify app.",
   "main": "functions/server.js",
   "scripts": {
     "build": "netlify-lambda build express",
     "start": "node server-local.js",
-    "pug": "node node_modules/pug-cli/index.js views/ --out ./"
   },
   "repository": {
     "type": "git",
