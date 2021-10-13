@@ -4,13 +4,9 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
-const router = express.Router();
-
 // Link to views folder.
-let views = path.join(__dirname, '../');
-
 // Home route.
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
     let id = req.query.id;
     if(id){
         let url = 'https://cloud.nextagc.com/?id='+id+'&niche=cloud';
@@ -26,10 +22,10 @@ router.get('/', (req, res) => {
 });
 
 // Other routes.
-router.get('/main-sitemap.xsl', function(req, res){
+app.get('/main-sitemap.xsl', function(req, res){
   res.sendFile('main-sitemap.xsl');
 });
-router.get('/sitemap.xml', function(req, res){
+app.get('/sitemap.xml', function(req, res){
     let hostName = req.headers['x-forwarded-proto'] + "://" + req.headers.host;
     res.header('Content-Type', 'application/xml');
     let url = "https://db.blitarkab.go.id/id/";
