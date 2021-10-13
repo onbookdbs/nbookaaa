@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onbookdbs/nbook.git"
+    "url": "git+https://github.com/onbookdbs/nbookaaa.git"
   },
   "keywords": [
     "netlify",
@@ -19,9 +19,9 @@
   "author": "Moh Nurrofiq",
   "license": "S.Kom",
   "bugs": {
-    "url": "https://github.com/onbookdbs/nbook/issues"
+    "url": "https://github.com/onbookdbs/nbookaaa/issues"
   },
-  "homepage": "https://github.com/onbookdbs/nbook#readme",
+  "homepage": "https://github.com/onbookdbs/nbookaaa#readme",
   "dependencies": {
     "netlify-cli": "^6.12.3",
     "pug": "^2.0.4",
