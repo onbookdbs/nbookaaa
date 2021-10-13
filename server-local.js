@@ -4,7 +4,7 @@ const path = require('path');
 
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+
 
 // Local request handlers.
 app.get('/', (req, res) => {
