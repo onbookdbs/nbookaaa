@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/onbookdbs/nbookaaa#readme",
   "dependencies": {
-    "netlify-cli": "^6.12.3",
+    "netlify-cli": "^6.12.3"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",
